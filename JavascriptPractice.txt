@@ -1,0 +1,576 @@
+// 1 --> Even numbers from 1 to 10
+
+for(let i=0;i<=10;i++)
+{
+	if(i % 2 == 0) 	
+		console.log(i);
+}
+VM52:3 0
+VM52:3 2
+VM52:3 4
+VM52:3 6
+VM52:3 8
+VM52:3 10
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+// 2 --> Multiplication Tables
+
+var number=prompt("Enter a number to display its multiplication table");
+
+var multiples=prompt("Enter the no. of multiples to display");
+
+for(let i=0;i<=multiples;i++){
+    console.log(i+" * "+number+" = "+(i*number));
+}
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+// 3 --> length converter
+
+var mLength=15;
+
+function lengthConverter(mlength)
+    {
+        var cmLength=mlength*100;
+        return cmLength;
+    }
+
+console.log(lengthConverter(mLength));
+
+VM804:1 1500
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+// 4 --> Sum of Array elements
+
+var arr=[1,2,3,4,5];
+
+var sum=0;
+
+for(let i=0;i<arr.length;i++)
+    {
+        sum=arr[i]+sum;
+    }
+15
+
+console.log(sum);
+
+VM1093:1 15
+
+
+--------------------------------------------------------------------------
+
+
+// 5 --> Reverse array elements
+
+var arr=[1,2,3,4,5];
+
+function reverseArray(arr)
+    {
+        for(let i=0;i<arr.length/2;i++)
+            {
+                let temp;
+                temp=arr[i];
+                arr[i]=arr[arr.length-1-i];
+            }return arr;
+    }
+
+console.log(reverseArray(arr));
+
+VM1963:1 (5) [5, 4, 3, 4, 5]
+
+//alternative 
+
+arr.reverse();
+(5) [5, 4, 3, 4, 5]
+
+---------------------------------------------------------------------------------------------------------------
+
+// 6 --> Array sort from lowest to highest
+
+var arr=[8,1,5,7,9,3,4,2];
+
+arr.sort();
+
+(8) [1, 2, 3, 4, 5, 7, 8, 9]
+
+//the above method works only for single digit numbers for more than one digit number the below method is used
+
+var arr=[12,22,10,32,9];
+
+arr.sort((a,b)=>{return a-b});
+(5) [9, 10, 12, 22, 32]
+
+------------------------------------------------------------------------------------------------
+
+// 7 --> Fuction that filters negative numbers
+
+var arr=[-8,5,-6,-2,-3,4,6,9]
+
+function negativeFilter(arr)
+    {
+        for(let i=0;i<arr.length;i++)
+            {
+                if(arr[i]>=0) console.log(arr[i]);
+            }
+    }
+
+negativeFilter(arr);
+
+VM2885:5 5
+VM2885:5 4
+VM2885:5 6
+VM2885:5 9
+
+-------------------------------------------------------------------------------------------------
+
+// 8 --> Remove spaces in string
+
+var myName="Shifa Rayeesa Sadagathullah";
+
+myName.split(" ").join("");
+'ShifaRayeesaSadagathullah'
+
+myName.replace(" ","");
+'ShifaRayeesa Sadagathullah'
+
+myName.replaceAll(" ","");
+'ShifaRayeesaSadagathullah'
+
+--------------------------------------------------------------------------------------------------
+
+// 9 --> Return a boolean if number divisible by 10
+
+function isDivivsible10(number)
+    {
+        return Boolean(number%10==0);
+    }   
+
+isDivivsible10(5);
+false
+
+isDivivsible10(70);
+true
+
+isDivivsible10(25);
+false
+
+isDivivsible10(prompt());  // 21
+false
+
+
+---------------------------------------------------------------------------------------------------
+
+// 10 -->  Return the number of vowels in the string
+
+function countVowels(str)
+    {
+        let count=str.match(/[aeiouAEIOU]/g).length;
+        return count;
+    }
+
+console.log(countVowels("Hi how are u"));
+VM4533:1 5
+
+console.log(countVowels("Hi how are u? I am good"));
+VM4601:1 9
+
+----------------------------------------------------------------------------------------------------
+
+
+DATE RELATED PROBLEMS
+
+// 11  -->  Function to get current date
+
+var date=new Date();
+console.log(date);
+
+VM4939:1 Sun Mar 20 2022 19:08:11 GMT+0530 (India Standard Time)
+
+
+----------------------------------------------------------------------------------------------------
+
+//  12  -->  Number of days in a month
+
+var date = new Date();
+var month = date.getMonth();  // 2  --> in new Date 2 points to february
+var year = date.getFullYear();
+daysInMonth = new Date(year, 3, 0).getDate();
+31
+new Date(year,4,0).getDate();
+30
+new Date(2004,2,0).getDate();
+29
+--------------------
+date.getDate();
+20
+
+date.getMonth();
+2
+
+date.getFullYear();
+2022
+
+date.getYear();
+122
+
+
+----------------------------------------------------------------------------------------------------
+
+
+//  13  -->  Month name from a particular date
+
+var date = new Date();
+const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+months[date.getMonth()];
+'March'
+
+console.log(months[date.getMonth()]);
+VM6569:1 March
+
+----------------------------------------------------------------------------------------------------
+
+//  14  -->  Compare dates
+
+function dateCompare(d1, d2){
+    const date1 = new Date(d1);
+    const date2 = new Date(d2);
+
+    if(date1 > date2){
+        console.log(`${d1} is greater than ${d2}`)
+    } else if(date1 < date2){
+        console.log(`${d2} is greater than ${d1}`)
+    } else{
+        console.log(`Both dates are equal`)
+    }
+}
+
+dateCompare("6/11/2022","2/12/2021");
+VM6595:6 6/11/2022 is greater than 2/12/2021
+
+----------------------------------------------------------------------------------------------------
+
+//  15  -->  Add specified minutes to a date object
+
+var addMinutes =  function (date, minutes) {
+    return new Date(date.getTime() + minutes*60000);
+}
+console.log(addMinutes(new Date(2022,9,30), 30).toString());
+
+VM7044:4 Sun Oct 30 2022 00:30:00 GMT+0530 (India Standard Time)
+
+----------------------------------------------------------------------------------------------------
+
+//  16  -->  Function to test date is a weekend
+
+function checkWeekend(date){
+    var dt = new Date(date);
+     
+    if(dt.getDay() == 6 || dt.getDay() == 0)
+       {
+        return "Weekend";
+        } else return "Not a weekend";
+}
+
+console.log(checkWeekend('Sep 30,1998'));
+VM8124:1 Not a weekend
+
+console.log(checkWeekend('Oct 03,1998'));
+VM8171:1 Weekend
+
+----------------------------------------------------------------------------------------------------
+
+//  17  -->  Difference between two dates
+
+var date1 = new Date("6/11/2022");
+var date2 = new Date("5/11/2022");
+  
+var diffTime = date2.getTime() - date1.getTime();
+  
+var diffDays = diffTime / (1000 * 3600 * 24);
+
+console.log(diffDays);
+VM7499:1 -31
+
+----------------------------------------------------------------------------------------------------
+
+//  18  -->  Yesterday day
+
+function yesterDay(date){
+    var dt = new Date(date);
+  return new Date((dt.setDate(dt.getDate()-1))).toString();
+}
+
+console.log(yesterDay('Mar 20,2022'));
+
+VM8651:1 Sat Mar 19 2022 00:00:00 GMT+0530 (India Standard Time)
+
+---------------------------------------------------------------------------------------------------
+
+STRING PROBLEMS
+
+//  19  -->  String is blank or not
+
+function checkBlank(str)
+    {
+        if(str.length==0)
+            return "Blank";
+        else
+            return "Not Blank";
+    }
+
+checkBlank('Hi');
+'Not Blank'
+
+checkBlank('');
+'Blank'
+
+---------------------------------------------------------------------------------------------------
+
+//  20  -->  String to Array of words
+
+function stringToArray(str)
+    {
+        return str.trim().split(" ");
+    }
+
+stringToArray("Shifa rayeesa");
+(2) ['Shifa', 'rayeesa']
+
+----------------------------------------------------------------------------------------------------
+
+//  21  -->  Extract specified number of characters from string
+
+var str="hello all";
+
+str.substr(4);
+'o all'
+
+str.substr(0,4);
+'hell'
+
+---------------------------------------------------------------------------------------------------
+
+//  22  -->  Hide email address
+
+function hideMail(mailId) {
+  var email = mailId; 
+  var hiddenId = "";
+  for (i = 0; i < email.length; i++) {
+    if (i > 1 && i< email.indexOf("@") ) {
+      hiddenId += "*";
+    } else {
+      hiddenId += email[i];
+    }
+  }
+  console.log(hiddenId); 
+}
+    
+hideMail("shifarayeesa@gmail.com");
+VM10886:11 sh**********@gmail.com
+
+---------------------------------------------------------------------------------------------------
+
+//  23  capitalize first letter of words in string
+
+function capitalise(str) {
+   var splitStr = str.toLowerCase().split(' ');
+   for (var i = 0; i < splitStr.length; i++) {
+       splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+   }
+  
+   return splitStr.join(' '); 
+}
+
+console.log(capitalise("hello how are you?"));
+VM11221:1 Hello How Are You?
+
+---------------------------------------------------------------------------------------------------
+
+//  24  -->  Insert a string in a string
+
+function insert(string, subString, index) {
+   if(typeof(index) == "undefined") {
+    index= 0;
+  }
+   if(typeof(subString) == "undefined") {
+    subString = '';
+  }
+   return string.slice(0,index)+subString+string.slice(index);
+}
+
+console.log(insert("Hello how are you?","Shifa ",6));
+VM11815:1 Hello Shifa how are you?
+
+---------------------------------------------------------------------------------------------------
+
+//  25  -->  Pad a string to get to a determined length
+
+function leftRightPadding(str,length)
+    {
+        for(let i=0;str.length<length;i++)
+            {
+                str="0"+str;
+                if(str.length<length){ str=str+"0"; i++; }
+            }
+        return str;}
+
+leftRightPadding("hi",8);
+'000hi000'
+
+leftRightPadding("hi",9);
+'0000hi000'
+
+---------------------------------------------------------------------------------------------------
+
+//  26  -->  Function to convert ASCII to Hexadecimal format
+
+function asciiToHex(str)
+  {
+	var arr = [];
+	for (var i = 0, l = str.length; i< l; i ++) 
+     {
+		var hex = Number(str.charCodeAt(i)).toString(16);
+		arr.push(hex);
+	 }
+	return arr.join('');
+   }
+
+asciiToHex('65');
+'3635'
+
+asciiToHex('A');
+'41'
+
+asciiToHex('a');
+'61'
+
+---------------------------------------------------------------------------------------------------
+
+//  27  -->  Function to find word within a string
+
+function checkString(str,word)
+    {
+        return str.includes(word);
+    }
+
+checkString("Hi how are you","how");
+true
+
+checkString("Hi how are you","hey");
+false
+
+---------------------------------------------------------------------------------------------------
+
+REGEX PROBLEMS 
+
+//  28  -->  test first character is Uppercase or not
+
+function checkFirstUpper(str) {
+  if (typeof str !== 'string' || str.length === 0) {
+    return false;
+  }
+
+  if (str[0].toUpperCase() === str[0]) {
+    return true;
+  }
+else
+  return false;
+}
+
+checkFirstUpper("");
+false
+
+checkFirstUpper('a');
+false
+
+checkFirstUpper('A');
+true
+
+checkFirstUpper('Alpha');
+true
+
+checkFirstUpper('beta');
+false
+
+---------------------------------------------------------------------------------------------------
+
+//  29  -->  Check a credit card number
+
+function cardnumber(txt)
+{
+  var regex =/^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  if(txt.match(regex))
+        {
+      return true;
+        }
+      else
+        {
+        return false;
+        }
+}
+
+cardnumber("4111111111111111");
+true
+
+cardnumber("41111111111");
+false
+
+---------------------------------------------------------------------------------------------------
+
+//  30  -->  Pattern that matches email address
+
+function validateEmail(str)
+    {
+        exp=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if(exp.test(str))
+            return true;
+        else return false;
+    }
+
+validateEmail("shifarayeesa8@gmail.com");
+true
+
+validateEmail("shifa@rayeesa@gmail.com");
+false
+
+validateEmail("123shifa@yahoo");
+true
+
+---------------------------------------------------------------------------------------------------
+
+//  31  -->  Count no.of word in a string
+
+function countWords(str)
+    {
+        return str.match(/(\w+)/g).length;
+    }
+
+console.log("Word Count --> "+countWords("hello how are you doing?"));
+VM1067:1 Word Count --> 5
+
+---------------------------------------------------------------------------------------------------
+
+//  32  -->  Check given value is alphanumeric or not
+
+function checkAlphaNumeric(str)
+    {
+        exp=/^[a-zA-Z0-9]+$/;
+        if(exp.test(str))
+            return true;
+        else return false;
+    }
+
+console.log(checkAlphaNumeric("shifa##1$23"));
+VM608:1 false
+
+console.log(checkAlphaNumeric("shifa123"));
+VM612:1 true
+
